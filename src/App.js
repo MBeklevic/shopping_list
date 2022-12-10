@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import ShoppingListForm from './Components/ShoppingListForm';
+import { v4 as uuidv4 } from 'uuid';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: [
+        { name: "Milk", qty: "2 gallons", id: uuidv4() },
+        { name: "Bread", qty: "2 loaves", id: uuidv4() }
+      ]
+    };
+    this.addItem = this.addItem.bind(this)
+  }
+
+  addItem(item) {
+    let newItem = { ...item, id: uuidv4() };
+    this.setState(st => ({
+      items: [...st.items, newItem]
+    }))
+  }
+
+  render() {
+    return (
+      <>
+        <div className="App" >
+          <h1> Shopping List</h1>
+          <ul>
+            {this.state.items.map(item => (
+              <li key={item.id} id={item.id}>
+                {item.name} : {item.qty}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <ShoppingListForm addItem={this.addItem} />
+      </>
+    );
+  }
 }
 
 export default App;
