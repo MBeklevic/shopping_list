@@ -8,7 +8,8 @@ class App extends Component {
     this.state = {
       items: [
         { name: "Milk", qty: "2 gallons", id: uuidv4() },
-        { name: "Bread", qty: "2 loaves", id: uuidv4() }
+        { name: "Bread", qty: "2 loaves", id: uuidv4() },
+        { name: "eggs", qty: "2 dozens", id: uuidv4() }
       ]
     };
     this.addItem = this.addItem.bind(this)
