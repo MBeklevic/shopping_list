@@ -9,6 +9,7 @@
 
 ## Features
 - User can make a shopping list with the form at the page
+- Responsive Design
 
 ## Libraries
 - React
