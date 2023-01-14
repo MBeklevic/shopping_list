@@ -1,4 +1,4 @@
-### Shopping List
+## Shopping List
 ### Shopping List Application with React
 
 ### Live Demo
